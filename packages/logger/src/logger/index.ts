@@ -48,7 +48,6 @@ export default class Logger {
                 break;
             default:
                 target = '36';
-
                 break;
         }
         return `\x1b[${target}m%s\x1b`;
