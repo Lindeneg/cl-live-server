@@ -324,7 +324,7 @@ describe('@live-server/live-server', () => {
             await server.shutdown();
         });
 
-        test('clears timeout if already set when onsend', async () => {
+        test('clears timeout if already set when onsend', (done) => {
             const server = new LiveServer({
                 root,
             }).startSync();
@@ -347,7 +347,8 @@ describe('@live-server/live-server', () => {
 
             expect(clearTimeoutSpy).toHaveBeenCalledWith('test-id');
 
-            await server.shutdown();
+            server.shutdownSync();
+            done();
         });
         test('filters clients when onclose', async () => {
             const server = new LiveServer({
