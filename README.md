@@ -8,3 +8,11 @@ Mono-repository for packages that together powers a simple development server wi
 
 -   [CLI](https://github.com/lindeneg/cl-live-server/tree/master/packages/cli)
 -   [Module](https://github.com/lindeneg/cl-live-server/tree/master/packages/live-server)
+
+#### Try
+
+`git clone git@github.com:Lindeneg/cl-live-server.git`
+
+`cd cl-live-server && yarn bootstrap`
+
+`yarn dev`
