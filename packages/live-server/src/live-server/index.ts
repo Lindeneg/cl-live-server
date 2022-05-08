@@ -41,7 +41,11 @@ export default class LiveServer {
             Logger.logLevel = opts.logLevel;
         }
         this.config = parseConfig(opts);
-        this.staticHandler = staticServerHandler(this.config.root);
+        this.staticHandler = staticServerHandler(
+            this.config.root,
+            __dirname,
+            'html/index.html'
+        );
 
         if (this.config.httpsModule) {
             checkModule(this.config.httpsModule, 'HTTPS');
