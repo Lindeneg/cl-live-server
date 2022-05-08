@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+import type { Server as HttpServer } from 'http';
 import type { NextHandleFunction } from 'connect';
 import type { LogLevel } from '@cl-live-server/logger';
 
@@ -97,7 +98,12 @@ export type ParsedOptions = Required<
     Omit<LiveServerOptions, 'noBrowser' | 'logLevel'>
 >;
 
-export type { Server } from 'http';
+export type Destroyable = {
+    destroy: (cb?: (err?: Error) => void) => void;
+};
+
+export type Server = HttpServer & Destroyable;
+
 export type { AddressInfo } from 'net';
 export type { Server as CServer, NextHandleFunction } from 'connect';
 export type { FSWatcher, WatchOptions } from 'chokidar';

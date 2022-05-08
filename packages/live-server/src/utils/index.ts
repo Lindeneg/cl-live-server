@@ -73,9 +73,7 @@ export const spaMiddleware: NextHandleFunction = (req, res, next) => {
     }
 };
 
-export const destroyable = (
-    server: Server & { destroy?: (cb: (err?: Error) => void) => void }
-): void => {
+export const destroyable = (server: Server): void => {
     const connections: Record<string, { destroy: () => void }> = {};
 
     server.on('connection', (conn) => {
