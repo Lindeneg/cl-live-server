@@ -5,6 +5,7 @@ Command-line interface for [@cl-live-server/live-server](https://github.com/lind
 #### Install
 
 `yarn global add @cl-live-server/cli`
+
 `npm install -g @cl-live-server/cli`
 
 #### Usage

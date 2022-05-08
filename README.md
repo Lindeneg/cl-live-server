@@ -7,7 +7,7 @@ Mono-repository for packages that together powers a simple development server wi
 #### Usage
 
 -   [CLI](https://github.com/lindeneg/cl-live-server/tree/master/packages/cli)
--   [Module](https://github.com/lindeneg/cl-live-server/tree/master/packages/live-server)
+-   [Package](https://github.com/lindeneg/cl-live-server/tree/master/packages/live-server)
 
 #### Try
 
