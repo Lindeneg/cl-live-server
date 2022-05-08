@@ -31,7 +31,11 @@ describe('@logger/logger', () => {
     test('can use default log level', () => {
         expect(Logger.logLevel).toBe(originalLogLevel);
     });
-
+    test('can print to stdout with none color', () => {
+        Logger.print('test-message', LogSeverity.None);
+        expect(consoleOutput[0]).toBe('\x1b[0m%s\x1b');
+        expect(consoleOutput[1]).toBe('test-message');
+    });
     test('can print to stdout with default debug color', () => {
         Logger.print('test-message');
         expect(consoleOutput[0]).toBe('\x1b[36m%s\x1b');

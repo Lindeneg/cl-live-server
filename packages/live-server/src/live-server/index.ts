@@ -103,7 +103,6 @@ export default class LiveServer {
                 });
             }),
             new Promise<Error | null>((resolve) => {
-                //@ts-expect-error asd
                 this.server.destroy((err) => {
                     if (!err) {
                         Logger.debug('Successfully closed server');
@@ -120,8 +119,7 @@ export default class LiveServer {
     public shutdownSync = (): void => {
         Logger.print('Shutting down cl-live-server..');
         this.watcher.close();
-        this.app.removeAllListeners();
-        this.server.close();
+        this.server.destroy();
     };
 
     public getServer = (): Server => this.server;
@@ -149,7 +147,7 @@ export default class LiveServer {
             );
             protocol = 'https';
         } else {
-            server = http.createServer(this.app);
+            server = cast(http.createServer(this.app));
             protocol = 'http';
         }
         Logger.debug(`Configuring server with ${protocol} protocol`);
