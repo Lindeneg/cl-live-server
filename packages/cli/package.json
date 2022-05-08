@@ -1,0 +1,42 @@
+{
+    "name": "@cl-live-server/cli",
+    "repository": "git@github.com:Lindeneg/cl-live-server.git",
+    "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/cli",
+    "author": "lindeneg <christian@lindeneg.org>",
+    "license": "MIT",
+    "version": "0.0.1",
+    "description": "CLI for '@cl-live-server/live-server' package",
+    "keywords": [
+        "server",
+        "development",
+        "reload",
+        "hot-reload",
+        "dev-server",
+        "cli",
+        "typescript",
+        "html",
+        "css",
+        "javascript"
+    ],
+    "bin": {
+        "cl-live-server": "./index.js"
+    },
+    "scripts": {
+        "build": "yarn run build:prod",
+        "build:prod": "NODE_ENV=production yarn run build:js",
+        "build:dev": "NODE_ENV=development yarn run build:js --watch",
+        "build:js": "rollup -c",
+        "test": "yarn run test:verbose",
+        "test:verbose": "jest --verbose",
+        "test:coverage": "yarn run test --coverage",
+        "lint": "eslint -c ../../.eslintrc.json **/src/**/*.ts",
+        "lint:fix": "yarn run lint --fix"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@cl-live-server/live-server": "^0.0.1",
+        "@cl-live-server/logger": "^0.0.1"
+    }
+}

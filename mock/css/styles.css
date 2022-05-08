@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    text-decoration: underline;
+}
+ 
+#btn {
+    width: 176px;
+    height: 42px;
+    margin-top: 15px;
+    border-radius: 15px;
+    background-color: navy;
+    color: white;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: white;
+    color: navy;
+}

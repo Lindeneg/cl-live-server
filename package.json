@@ -1,0 +1,50 @@
+{
+    "name": "cl-live-server",
+    "private": "true",
+    "repository": "git@github.com:Lindeneg/cl-live-server.git",
+    "author": "lindeneg <christian@lindeneg.org>",
+    "license": "MIT",
+    "engines": {
+        "node": ">=14.17.6"
+    },
+    "scripts": {
+        "bootstrap": "yarn install && lerna bootstrap && yarn run build && yarn run test",
+        "reset": "rm -rf yarn.lock node_modules && lerna exec --parallel -- rm -rf dist lib node_modules && yarn run bootstrap",
+        "dev": "yarn run start --root ./mock --log-level 4 --mount /test-a:./js/index.js,/test-b:./css/styles.css",
+        "start": "node ./packages/cli/index.js",
+        "build": "bash ./scripts/build.sh",
+        "test": "yarn run test:verbose",
+        "test:coverage": "lerna exec -- yarn run test:coverage",
+        "test:verbose": "lerna exec --parallel -- yarn run test:verbose",
+        "test:root": "yarn run test:root:verbose",
+        "test:root:verbose": "CL_LIVE_SERVER_ROOT_TEST=1 jest --verbose",
+        "test:root:coverage": "yarn run test:root:verbose --coverage",
+        "lint": "lerna exec --parallel -- yarn lint",
+        "lint:fix": "lerna exec --parallel -- yarn lint:fix"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^21.1.0",
+        "@rollup/plugin-node-resolve": "^13.2.1",
+        "@types/axios": "^0.14.0",
+        "@types/jest": "^27.4.1",
+        "@types/node": "^17.0.25",
+        "@typescript-eslint/eslint-plugin": "^5.20.0",
+        "@typescript-eslint/parser": "^5.20.0",
+        "axios": "^0.27.2",
+        "eslint": "^8.14.0",
+        "eslint-plugin-jest": "^26.1.5",
+        "jest": "^27.0.0",
+        "lerna": "^4.0.0",
+        "rollup": "^2.70.2",
+        "rollup-plugin-cleaner": "^1.0.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-typescript2": "^0.31.2",
+        "ts-jest": "^27.1.4",
+        "typescript": "^4.6.3"
+    },
+    "peerDependencies": {},
+    "dependencies": {}
+}

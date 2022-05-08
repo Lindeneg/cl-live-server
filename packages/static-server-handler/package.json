@@ -1,0 +1,44 @@
+{
+    "name": "@cl-live-server/static-server-handler",
+    "repository": "git@github.com:Lindeneg/cl-live-server.git",
+    "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/static-server-handler",
+    "author": "lindeneg <christian@lindeneg.org>",
+    "license": "MIT",
+    "version": "0.0.1",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "description": "Utility handler used by '@cl-live-server/live-server', primarily to inject javascript into HTML",
+    "keywords": [
+        "server",
+        "static-server",
+        "typescript"
+    ],
+    "dependencies": {
+        "@cl-live-server/logger": "^0.0.1",
+        "event-stream": "^4.0.1",
+        "send": "^0.18.0"
+    },
+    "scripts": {
+        "build": "yarn run build:prod",
+        "build:prod": "NODE_ENV=production yarn run build:all",
+        "build:dev": "NODE_ENV=development yarn run build:js --watch",
+        "build:all": "yarn run build:js && yarn run build:types && yarn run build:move",
+        "build:js": "rollup -c",
+        "build:types": "tsc --project ./tsconfig-types.json",
+        "build:move": "cp -r html dist",
+        "test": "yarn run test:verbose",
+        "test:verbose": "jest --verbose",
+        "test:coverage": "yarn run test --coverage",
+        "lint": "eslint -c ../../.eslintrc.json **/src/**/*.ts",
+        "lint:fix": "yarn run lint --fix"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@types/connect": "^3.4.35",
+        "@types/event-stream": "^4.0.0",
+        "@types/send": "^0.17.1"
+    }
+}

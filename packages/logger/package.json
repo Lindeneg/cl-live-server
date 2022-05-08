@@ -1,0 +1,34 @@
+{
+    "name": "@cl-live-server/logger",
+    "repository": "git@github.com:Lindeneg/cl-live-server.git",
+    "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/logger",
+    "author": "lindeneg <christian@lindeneg.org>",
+    "license": "MIT",
+    "version": "0.0.1",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "description": "Log events. Used by '@cl-live-server' packages",
+    "keywords": [
+        "logger",
+        "console",
+        "utility",
+        "typescript"
+    ],
+    "scripts": {
+        "build": "yarn run build:prod",
+        "build:prod": "NODE_ENV=production yarn run build:all",
+        "build:dev": "NODE_ENV=development yarn run build:js --watch",
+        "build:all": "yarn run build:js && yarn run build:types",
+        "build:js": "rollup -c",
+        "build:types": "tsc --project ./tsconfig-types.json",
+        "test": "yarn run test:verbose",
+        "test:verbose": "jest --verbose",
+        "test:coverage": "yarn run test --coverage",
+        "lint": "eslint -c ../../.eslintrc.json **/src/**/*.ts",
+        "lint:fix": "yarn run lint --fix"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

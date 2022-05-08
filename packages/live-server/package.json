@@ -1,0 +1,64 @@
+{
+    "name": "@cl-live-server/live-server",
+    "repository": "git@github.com:Lindeneg/cl-live-server.git",
+    "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/live-server",
+    "author": "lindeneg <christian@lindeneg.org>",
+    "license": "MIT",
+    "version": "0.0.1",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "description": "Development server with reload capabilities",
+    "keywords": [
+        "server",
+        "development",
+        "reload",
+        "hot-reload",
+        "dev-server",
+        "typescript",
+        "html",
+        "css",
+        "javascript"
+    ],
+    "scripts": {
+        "build": "yarn run build:prod",
+        "build:prod": "NODE_ENV=production yarn run build:all",
+        "build:dev": "NODE_ENV=development yarn run build:js --watch",
+        "build:all": "yarn run build:js && yarn run build:types",
+        "build:js": "rollup -c",
+        "build:types": "tsc --project ./tsconfig-types.json",
+        "test": "yarn run test:verbose",
+        "test:verbose": "jest --verbose",
+        "test:coverage": "yarn run test --coverage",
+        "lint": "eslint -c ../../.eslintrc.json **/src/**/*.ts",
+        "lint:fix": "yarn run lint --fix",
+        "ssl:init": "yarn run keys:clean && yarn run keys:generate",
+        "keys:generate": "openssl req -x509 -newkey rsa:4096 -keyout ./mock/https/server.key -out ./mock/https/server.cert -sha256 -days 365",
+        "keys:clean": "rm -f ./mock/https/server.*"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@cl-live-server/logger": "^0.0.1",
+        "@cl-live-server/static-server-handler": "^0.0.1",
+        "chokidar": "^3.5.3",
+        "connect": "^3.7.0",
+        "cors": "^2.8.5",
+        "faye-websocket": "^0.11.4",
+        "http-auth": "^4.1.9",
+        "morgan": "^1.10.0",
+        "open": "^8.4.0",
+        "proxy-middleware": "^0.15.0",
+        "resolve": "^1.22.0",
+        "serve-index": "^1.9.1"
+    },
+    "devDependencies": {
+        "@types/connect": "^3.4.35",
+        "@types/cors": "^2.8.12",
+        "@types/http-auth": "^4.1.1",
+        "@types/morgan": "^1.9.3",
+        "@types/open": "^6.2.1",
+        "@types/serve-index": "^1.9.1"
+    }
+}
