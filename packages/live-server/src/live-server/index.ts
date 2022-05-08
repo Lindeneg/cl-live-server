@@ -329,11 +329,7 @@ export default class LiveServer {
     };
 
     private filterClients = (ws: WebSocket) => {
-        const before = this.clients.length;
         this.clients = this.clients.filter((entry) => entry !== ws);
-        Logger.debug(
-            JSON.stringify({ before, after: this.clients.length }, null, 4)
-        );
     };
 
     private initializeUpgradeListener = (): void => {
