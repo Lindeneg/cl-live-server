@@ -8,8 +8,9 @@
         "node": ">=14.17.6"
     },
     "scripts": {
-        "bootstrap": "yarn install && lerna bootstrap && yarn run build && yarn run test:root:coverage",
+        "bootstrap": "yarn install && lerna bootstrap && yarn run prepublish",
         "reset": "rm -rf yarn.lock node_modules && lerna exec --parallel -- rm -rf dist lib node_modules && yarn run bootstrap",
+        "prepublish": "yarn run build && yarn run test:root:coverage",
         "dev": "yarn run start --root ./mock --log-level 4 --mount /test-a:./js/index.js,/test-b:./css/styles.css",
         "start": "node ./packages/cli/index.js",
         "build": "bash ./scripts/build.sh",
