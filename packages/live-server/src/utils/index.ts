@@ -1,7 +1,12 @@
 import path from 'path';
 import { sync as resolve } from 'resolve';
 import Logger from '@cl-live-server/logger';
-import type { LiveServerOptions, NextHandleFunction, ParsedOptions } from '../types';
+import type {
+    LiveServerOptions,
+    NextHandleFunction,
+    ParsedOptions,
+    Server,
+} from '../types';
 
 export const getOpenPath = (
     open?: LiveServerOptions['open'],
@@ -66,4 +71,23 @@ export const spaMiddleware: NextHandleFunction = (req, res, next) => {
             next();
         }
     }
+};
+
+export const destroyable = (
+    server: Server & { destroy?: (cb: (err?: Error) => void) => void }
+): void => {
+    const connections: Record<string, { destroy: () => void }> = {};
+
+    server.on('connection', (conn) => {
+        const key = conn.remoteAddress + ':' + conn.remotePort;
+        connections[key] = conn;
+        conn.on('close', function () {
+            delete connections[key];
+        });
+    });
+
+    server.destroy = (cb) => {
+        server.close(cb);
+        for (const key in connections) connections[key].destroy();
+    };
 };

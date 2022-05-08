@@ -14,7 +14,7 @@ import connect from 'connect';
 import serveIndex from 'serve-index';
 import staticServerHandler, { cast } from '@cl-live-server/static-server-handler';
 import Logger, { LogLevel } from '@cl-live-server/logger';
-import { checkModule, parseConfig, spaMiddleware } from '../utils';
+import { checkModule, destroyable, parseConfig, spaMiddleware } from '../utils';
 import type {
     Server,
     Protocol,
@@ -67,6 +67,8 @@ export default class LiveServer {
 
         [this.server, this.protocol] = this.configureServer();
 
+        destroyable(this.server);
+
         this.watcher = this.configureWatcher();
 
         this.initializeErrorListener();
@@ -101,7 +103,8 @@ export default class LiveServer {
                 });
             }),
             new Promise<Error | null>((resolve) => {
-                this.server.close((err) => {
+                //@ts-expect-error asd
+                this.server.destroy((err) => {
                     if (!err) {
                         Logger.debug('Successfully closed server');
                         resolve(null);
