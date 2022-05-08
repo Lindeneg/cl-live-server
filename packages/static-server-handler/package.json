@@ -15,6 +15,9 @@
         "typescript"
     ],
     "dependencies": {
+        "@types/connect": "^3.4.35",
+        "@types/event-stream": "^4.0.0",
+        "@types/send": "^0.17.1",
         "@cl-live-server/logger": "^0.0.1",
         "event-stream": "^4.0.1",
         "send": "^0.18.0"
@@ -35,10 +38,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "devDependencies": {
-        "@types/connect": "^3.4.35",
-        "@types/event-stream": "^4.0.0",
-        "@types/send": "^0.17.1"
     }
 }

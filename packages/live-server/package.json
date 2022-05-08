@@ -40,6 +40,12 @@
         "access": "public"
     },
     "dependencies": {
+        "@types/connect": "^3.4.35",
+        "@types/cors": "^2.8.12",
+        "@types/http-auth": "^4.1.1",
+        "@types/morgan": "^1.9.3",
+        "@types/open": "^6.2.1",
+        "@types/serve-index": "^1.9.1",
         "@cl-live-server/logger": "^0.0.1",
         "@cl-live-server/static-server-handler": "^0.0.1",
         "chokidar": "^3.5.3",
@@ -52,13 +58,5 @@
         "proxy-middleware": "^0.15.0",
         "resolve": "^1.22.0",
         "serve-index": "^1.9.1"
-    },
-    "devDependencies": {
-        "@types/connect": "^3.4.35",
-        "@types/cors": "^2.8.12",
-        "@types/http-auth": "^4.1.1",
-        "@types/morgan": "^1.9.3",
-        "@types/open": "^6.2.1",
-        "@types/serve-index": "^1.9.1"
     }
 }
