@@ -28,7 +28,7 @@
         "build:js": "rollup -c",
         "build:types": "tsc --project ./tsconfig-types.json",
         "test": "yarn run test:verbose",
-        "test:verbose": "jest --verbose",
+        "test:verbose": "jest --verbose --forceExit --runInBand",
         "test:coverage": "yarn run test --coverage",
         "lint": "eslint -c ../../.eslintrc.json **/src/**/*.ts",
         "lint:fix": "yarn run lint --fix",
