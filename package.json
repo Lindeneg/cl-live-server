@@ -17,7 +17,7 @@
         "test:coverage": "lerna exec -- yarn run test:coverage",
         "test:verbose": "lerna exec --parallel -- yarn run test:verbose",
         "test:root": "yarn run test:root:verbose",
-        "test:root:verbose": "CL_LIVE_SERVER_ROOT_TEST=1 jest --verbose",
+        "test:root:verbose": "CL_LIVE_SERVER_ROOT_TEST=1 jest --verbose --forceExit --runInBand",
         "test:root:coverage": "yarn run test:root:verbose --coverage",
         "lint": "lerna exec --parallel -- yarn lint",
         "lint:fix": "lerna exec --parallel -- yarn lint:fix"
