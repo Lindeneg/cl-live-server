@@ -9,7 +9,7 @@ Logging utility used by all [@cl-live-server](https://github.com/lindeneg/cl-liv
 #### Usage
 
 ```ts
-import Logger, { LogLevel } from '@cl-live-server/logger';
+import Logger, { LogLevel, LogSeverity } from '@cl-live-server/logger';
 
 // set logLevel
 Logger.logLevel = LogLevel.Middle; // logLevel 2
@@ -25,4 +25,7 @@ Logger.success('Some success message'); // logLevel 1
 
 // error, redish color
 Logger.error('Some error message'); // logLevel 1
+
+// flexible, choose severity which dictates color
+Logger.print('Some error message', LogSeverity.Success); // logLevel 1
 ```
