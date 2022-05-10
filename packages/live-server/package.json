@@ -4,7 +4,7 @@
     "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/live-server",
     "author": "lindeneg <christian@lindeneg.org>",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/types/index.d.ts",
@@ -40,8 +40,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@cl-live-server/logger": "^0.0.1",
-        "@cl-live-server/static-server-handler": "^0.0.1",
+        "@cl-live-server/logger": "^0.0.2",
+        "@cl-live-server/static-server-handler": "^0.0.2",
         "@types/connect": "^3.4.35",
         "@types/cors": "^2.8.12",
         "@types/http-auth": "^4.1.1",

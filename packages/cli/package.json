@@ -4,7 +4,7 @@
     "homepage": "https://github.com/lindeneg/cl-live-server/tree/master/packages/cli",
     "author": "lindeneg <christian@lindeneg.org>",
     "license": "MIT",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "CLI for '@cl-live-server/live-server' package",
     "keywords": [
         "server",
@@ -36,7 +36,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@cl-live-server/live-server": "^0.0.1",
-        "@cl-live-server/logger": "^0.0.1"
+        "@cl-live-server/live-server": "^0.0.2",
+        "@cl-live-server/logger": "^0.0.2"
     }
 }
