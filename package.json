@@ -9,7 +9,7 @@
     },
     "scripts": {
         "bootstrap": "yarn install && lerna bootstrap && yarn run build && yarn run test:root:coverage",
-        "reset": "rm -rf yarn.lock node_modules && lerna exec --parallel -- rm -rf dist lib node_modules && yarn run bootstrap",
+        "reset": "lerna exec --parallel -- rm -rf dist lib node_modules coverage && rm -rf yarn.lock node_modules coverage && yarn run bootstrap",
         "dev": "yarn run start --root ./mock --log-level 4 --mount /test-a:./js/index.js,/test-b:./css/styles.css",
         "start": "node ./packages/cli/index.js",
         "build": "bash ./scripts/build.sh",
