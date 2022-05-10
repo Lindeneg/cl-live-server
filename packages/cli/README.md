@@ -12,8 +12,6 @@ Command-line interface for [@cl-live-server/live-server](https://github.com/lind
 
 `cl-live-server [...OPTIONS]`
 
-`npx @cl-live-server/cli [...OPTIONS]`
-
 ```
 ARGS:
  -B --browser      [NAME]    specify browser to use (default: null)
