@@ -15,8 +15,16 @@ import LiveServer from '@cl-live-server/live-server';
 // or cjs import
 const { LiveServer } = require('@cl-live-server/live-server');
 
-// see options below
-const server = new LiveServer(options);
+(async () => {
+    // see options below
+    const server = new LiveServer(options);
+
+    // or server.startSync();
+    await server.start();
+
+    // or server.shutdownSync();
+    await server.shutdown();
+})();
 ```
 
 #### Options
